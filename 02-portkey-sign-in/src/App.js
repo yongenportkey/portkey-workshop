@@ -4,7 +4,7 @@ import "@portkey/did-ui-react/dist/assets/index.css"; // import portkey css
 import "./App.css";
 
 const App = () => {
-  const ref = useRef();
+  const signInComponentRef = useRef();
   const [wallet, setWallet] = useState();
 
   return (
@@ -12,13 +12,13 @@ const App = () => {
       <div className="my-app">
         <button
           onClick={() => {
-            ref.current?.setOpen(true);
+            signInComponentRef.current?.setOpen(true);
           }}
         >
           Sign In
         </button>
         <SignIn
-          ref={ref}
+          ref={signInComponentRef}
           onFinish={(wallet) => {
             setWallet(wallet);
           }}

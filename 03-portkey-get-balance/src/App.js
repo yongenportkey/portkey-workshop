@@ -12,7 +12,7 @@ const aelf = new AElf(
 );
 
 const App = () => {
-  const ref = useRef();
+  const signInComponentRef = useRef();
   const [wallet, setWallet] = useState();
   const [balance, setBalance] = useState(new BigNumber(0));
   const [message, setMessage] = useState("");
@@ -63,12 +63,12 @@ const App = () => {
       <div className="my-app">
         <button
           onClick={() => {
-            ref.current?.setOpen(true);
+            signInComponentRef.current?.setOpen(true);
           }}
         >
           Sign In
         </button>
-        <SignIn ref={ref} onFinish={onFinish} />
+        <SignIn ref={signInComponentRef} onFinish={onFinish} />
         {wallet ? (
           <>
             <button onClick={() => getBalance(wallet)}>getBalance</button>
